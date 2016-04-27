@@ -21,6 +21,7 @@ public class boletin25B extends javax.swing.JFrame {
         initComponents();
         
         
+        
     }
 
     /**
@@ -41,6 +42,11 @@ public class boletin25B extends javax.swing.JFrame {
 
         num.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         num.setText("0");
+        num.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numActionPerformed(evt);
+            }
+        });
 
         dibuja.setText("dibuja");
         dibuja.addActionListener(new java.awt.event.ActionListener() {
@@ -50,6 +56,11 @@ public class boletin25B extends javax.swing.JFrame {
         });
 
         borra.setText("borra");
+        borra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -88,9 +99,9 @@ public class boletin25B extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dibuja)
-                    .addComponent(borra))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(borra, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dibuja))
                 .addGap(18, 18, 18)
                 .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -102,11 +113,31 @@ public class boletin25B extends javax.swing.JFrame {
     private void dibujaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dibujaActionPerformed
         // TODO add your handling code here:
         Graphics g = panel.getGraphics();
+        int i;
+        int a= 10;
+        int b=60;
+        int c=100;
+        int d=100;
+        int numero = Integer.parseInt(num.getText());
         
-        g.setColor(Color.red);
-        g.drawOval(10, 60, 100, 100);
+        for (i=0; i<numero; i++ ){
+            g.setColor(Color.red);
+            g.drawOval(a, b, c, d);
+            a = a + 60;
+            i ++;
+        }
          
     }//GEN-LAST:event_dibujaActionPerformed
+
+    private void numActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_numActionPerformed
+
+    private void borraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borraActionPerformed
+        // TODO add your handling code here:
+        panel.repaint();
+    }//GEN-LAST:event_borraActionPerformed
 
     /**
      * @param args the command line arguments
